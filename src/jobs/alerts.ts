@@ -17,7 +17,7 @@ async function once(db: Db, userId: string, key: string, send: () => Promise<voi
   await db.insert(auditLog).values({ userId, actor: "system", action: "alert.sent", detail: { key } });
 }
 
-/** One user's proactive checks: reminders, workouts about to start, bills due, new conflicts. Called every minute by the worker. */
+/** One user's proactive checks: reminders, workouts about to start, bills due, new conflicts. Called every minute by /api/cron/tick. */
 export async function runAlerts(db: Db, userId: string, notify: Notify, now = new Date()) {
   const snap = await getSnapshot(db, userId, now);
 

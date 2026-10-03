@@ -47,6 +47,8 @@ async function handle(e: webhook.Event) {
   }
 }
 
+export const maxDuration = 60;
+
 export async function POST(req: Request) {
   const body = await req.text();
   if (!validateSignature(body, process.env.LINE_CHANNEL_SECRET ?? "", req.headers.get("x-line-signature") ?? "")) return new Response("bad signature", { status: 401 });

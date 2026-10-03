@@ -1,1 +1,1 @@
-export default { serverExternalPackages: ["postgres", "pg-boss"] };
+export default { serverExternalPackages: ["postgres"] };

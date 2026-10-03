@@ -4,7 +4,7 @@
 domains (calendar, bills, fitness, tasks, comms, research) are *tool modules* the one agent can call.
 Cross-domain judgment comes from the agent reading one shared context, plus deterministic checks in `reasoning/`.
 
-Stack: TypeScript, Next.js (UI + API routes), Postgres + Drizzle, pg-boss (jobs on Postgres), Zod, Claude API.
+Stack: TypeScript, Next.js (UI + API routes), Postgres + Drizzle, scheduled jobs via an authenticated cron route, Zod, Claude API.
 
 ## Layers (build order)
 1. `src/context/` — **Shared context layer.** Postgres is the single source of truth: events, bills, tasks,
@@ -30,7 +30,7 @@ proactive alerts out to both. Same context, same agent, same history.
 Calendar (Google, Outlook), Gmail, Slack, reminders, telephony (voice, SMS, call screening via Twilio).
 
 ## Jobs
-`src/jobs/` — pg-boss: calendar/Gmail sync, bill-due checks, workout reminders, weekly digest, all via `notify()`.
+`src/jobs/` — run by `/api/cron/tick`: calendar/Gmail sync, bill-due checks, workout reminders, weekly digest, all via `notify()`.
 
 ## Decisions
 - Fitness is not an agent; it is a tool module. Because agents are collapsed, the agent avatar uses one tint (`av-penny`).

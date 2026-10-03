@@ -3,6 +3,8 @@ import { handleMessage } from "@/agent/handleMessage";
 import { db } from "@/db/client";
 import { asResponse, requireUser } from "@/app/session";
 
+export const maxDuration = 60;
+
 export async function POST(req: Request) {
   try {
     const userId = await requireUser();
