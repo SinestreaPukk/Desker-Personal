@@ -24,3 +24,4 @@ npm test                    # needs the db up
 - A tool with `kind: "consequential"` must never run outside `resolveApproval`.
 - Channels render `Block[]`; they never contain business logic.
 - Known ceilings are marked `ponytail:` in code (e.g. cookie identity instead of real auth).
+# Desker-Personal
