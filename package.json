@@ -1,0 +1,39 @@
+{
+  "name": "desker-personal",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "db:up": "docker compose up -d db",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "worker": "npx tsx --tsconfig tsconfig.json src/jobs/worker.ts",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.131.0",
+    "@line/bot-sdk": "^11.3.0",
+    "@slack/web-api": "^8.2.0",
+    "drizzle-orm": "^0.45.3",
+    "googleapis": "^182.0.0",
+    "next": "^16.3.8",
+    "pg-boss": "^12.36.0",
+    "postgres": "^3.4.9",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "twilio": "^6.1.2",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "drizzle-kit": "^0.31.11",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.11"
+  }
+}

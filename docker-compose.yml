@@ -1,0 +1,7 @@
+services:
+  db:
+    image: postgres:17
+    environment: { POSTGRES_USER: desker, POSTGRES_PASSWORD: desker, POSTGRES_DB: desker }
+    ports: ["5432:5432"]
+    volumes: [pgdata:/var/lib/postgresql/data]
+volumes: { pgdata: {} }
